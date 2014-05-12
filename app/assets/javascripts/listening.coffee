@@ -1,5 +1,5 @@
 $ ->
-  dispatcher = new WebSocketRails 'localhost:3000/websocket'
+  dispatcher = new WebSocketRails 'ws://websocket.kerweb.ru:3001/websocket'
 
   channel = dispatcher.subscribe 'channel'
 

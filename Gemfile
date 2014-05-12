@@ -29,3 +29,9 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development do
+  gem 'net-ssh', '~> 2.7.0'
+  gem 'capistrano'
+  gem 'rvm-capistrano'
+end

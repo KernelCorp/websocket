@@ -17,7 +17,7 @@ server {
     try_files $uri @websocket;
   }
 
-  location @ravecy {
+  location @websocket {
     proxy_pass http://websocket;
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;

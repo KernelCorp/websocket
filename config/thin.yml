@@ -1,9 +1,7 @@
-&deploy_to: /var/www/websocket
-
-pid: ! '%{deploy_to}/shared/pids/thin.pid'
+pid: /var/www/websocket/shared/pids/thin.pid
 timeout: 30
 wait: 30
-log: ! '%{deploy_to}/current/log/thin.log'
+log: /var/www/websocket/current/log/thin.log
 max_conns: 1024
 require: []
 environment: production
@@ -12,6 +10,6 @@ servers: 1
 threaded: true
 no-epoll: true
 daemonize: true
-socket: ! '%{deploy_to}/shared/thin.sock'
-chdir: ! '%{deploy_to}/current'
+socket: /var/www/websocket/shared/thin.sock
+chdir: /var/www/websocket/current
 tag: websocket

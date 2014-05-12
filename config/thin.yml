@@ -1,6 +1,4 @@
 pid: /var/www/websocket/shared/pids/thin.pid
-address: 127.0.0.1
-port: 3000
 timeout: 30
 wait: 30
 log: /var/www/websocket/current/log/thin.log

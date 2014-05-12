@@ -4,8 +4,7 @@ map $http_upgrade $connection_upgrade {
 }
 
 upstream websocket {
-  server localhost:3000;
-  server localhost:3001;
+  unix:/var/www/websocket/shared/thin.0.sock;
 }
 
 server {

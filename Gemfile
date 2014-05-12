@@ -2,16 +2,18 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
-gem 'uglifier', '>= 1.3.0'
+gem 'mongoid'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
-gem 'websocket-rails', platforms: :ruby
+gem 'devise'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'activeadmin',         github: 'gregbell/active_admin'
+gem 'activeadmin-mongoid', github: 'elia/activeadmin-mongoid', branch: 'rails4'
+
+gem 'websocket-rails', platforms: :ruby
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -30,8 +32,20 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'database_cleaner'
+end
+
 group :development do
   gem 'net-ssh', '~> 2.7.0'
   gem 'capistrano'
   gem 'rvm-capistrano'
 end
+
+gem 'uglifier', '>= 1.3.0'
+gem 'jbuilder', '~> 1.2'

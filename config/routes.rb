@@ -1,8 +1,12 @@
 Websocket::Application.routes.draw do
 
+  devise_for :users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root 'main#channel'
 
   get 'trigger' => 'main#trigger'
+
+  post 'socket' => 'messages#trigger'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -35,7 +35,7 @@ namespace :deploy do
   desc "Start the Thin processes"
   task :start do
     run  <<-CMD
-      cd /var/www/apps/current; bundle exec thin start -C config/thin.yml
+      cd #{deploy_to}/current; bundle exec thin start -C config/thin.yml
     CMD
   end
 
@@ -52,11 +52,14 @@ namespace :deploy do
       cd #{deploy_to}/current; bundle exec thin restart -C config/thin.yml
     CMD
   end
+  task :init_vhost do
+    run "ln -s #{deploy_to}/current/config/#{application}.vhost /etc/nginx/sites-enabled/#{application}"
+  end
+
 
 end
 
 # Define all the tasks that need to be running manually after Capistrano is finished.
-after "deploy:finalize_update", "deploy:restart"
 after "deploy", "deploy:migrate"
 
 
